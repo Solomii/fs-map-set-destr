@@ -86,4 +86,18 @@ console.log(set1);
 
 // const arrUnique = [...set.value()]
 // const arrUnique = [...set.keys()]
-const arrUnique = [...new Set(arr).value()];
+const arrUnique = [...new Set(arr).keys()];
+
+
+//!!!!! task
+/*
+створити масив з двох приведенич в який потраплять тільки унікальні значення
+ */
+
+const number1 = [1,2,3,4,5,6]
+const number2 = [1,3,4,5,6,77,8,88,9];
+// const numberConcat=  number1.concat.number2;
+
+
+const numberUnique= [...new Set([...number1 , ...number2])];
+console.log(numberUnique)
