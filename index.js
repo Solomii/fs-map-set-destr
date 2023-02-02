@@ -88,16 +88,75 @@ console.log(set1);
 // const arrUnique = [...set.keys()]
 const arrUnique = [...new Set(arr).keys()];
 
-
 //!!!!! task
 /*
 створити масив з двох приведенич в який потраплять тільки унікальні значення
  */
 
-const number1 = [1,2,3,4,5,6]
-const number2 = [1,3,4,5,6,77,8,88,9];
+const number1 = [1, 2, 3, 4, 5, 6];
+const number2 = [1, 3, 4, 5, 6, 77, 8, 88, 9];
 // const numberConcat=  number1.concat.number2;
 
+const numberUnique = [...new Set([...number1, ...number2])];
+console.log(numberUnique);
 
-const numberUnique= [...new Set([...number1 , ...number2])];
-console.log(numberUnique)
+//!!!!!! деструктиризація !!!!
+
+const user = {
+    personalInfo: {
+        id: 12,
+        firstName: "Tom",
+        lastName: "Test",
+        bday: {
+            day: 28,
+            month: 2,
+            year: 1987,
+        },
+        gender: "male",
+    },
+    contactInfo: {
+        phone: "123-555",
+        email: "dfd@gmail.com",
+        adress: {
+            town: "NY",
+            street: "Avenu 33",
+        },
+    },
+
+    profession: "programmer",
+};
+
+// const userLastName= user.personalInfo.lastName;
+// const userYearBorn = user.personalInfo.bday;
+// const userProffesion = user.profession
+
+const {
+    profession: userProf,
+    contactInfo: {
+        email: userEmail,
+        phone: userPhone,
+        adress: { street: userStreet },
+    },
+    personalInfo: {
+        lastName,
+        bday: { year: userYearBorn },
+        gender: userGender,
+    },
+} = user;
+
+const logFullName = ({ personalInfo: { firstName, lastName }, ...restObject }) => {
+    console.log(firstName, lastName);
+    console.log(restObject)
+};
+
+logFullName(user);
+console.log(userProf);
+console.log(userEmail);
+console.log(userYearBorn);
+console.log(userGender);
+console.log(userPhone);
+console.log(userStreet);
+
+const {contactInfo:{email},...rest}=user;
+
+console.log(rest)
