@@ -40,9 +40,9 @@ dictionary.set("and", "і");
 const sentens = "in morning Sad dog and  funny cat go to forest  with rat";
 
 const translate = (str) => {
-    /* обрізаємо пробіли переводимо в нижній регіс, розбиваємо на слова, для кожного слова знаходимо ключ в мапі за яким повертаємо значення. зі значень повертаємо мосив ключів. 
+  /* обрізаємо пробіли переводимо в нижній регістр, розбиваємо на слова, для кожного слова знаходимо ключ в мапі за яким повертаємо значення. зі значень повертаємо масив ключів. 
   dictonary.get(key)
-  отримуємо масив українських значень(перекладеньч). з масива робимо масив
+  отримуємо масив українських значень(перекладених). з масива робимо string
   */
     return str
         .trim()
@@ -53,3 +53,18 @@ const translate = (str) => {
 };
 
 console.log(translate(sentens));
+
+
+//!!!! як перебирати map!!!!!!
+
+// const keysIterator = dictionary.keys();
+for (const iterator of  dictionary.keys()) {
+  console.log(iterator)
+}
+
+console.log(...dictionary.keys());
+for (const [key,value] of dictionary.entries()) {
+  console.log(key,value)
+}
+
+const arrKeys = [...dictionary.keys()]
